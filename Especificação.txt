@@ -1,0 +1,9 @@
+Campos do cliente
+
+customerid INT(11) PK AI
+name VARCHAR(255) required
+email VARCHAR(255)
+born_date DATE
+weight DECIMAL(10,3)
+gender CHAR(1) M or F
+country CHAR(2)

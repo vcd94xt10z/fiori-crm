@@ -1,0 +1,68 @@
+<mvc:View 
+    controllerName="zns.fioricrm.controller.CustomerListView"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    >
+    <Page title="{i18n>customerListViewTitle}" showNavButton="true" navButtonPress="onPageBack">
+        <content>
+            <Vbox>
+                <Table items="{path: 'model>/customerList'}" class="sapUiSmallMargin"
+                    id="table1"
+                    width="auto"
+                    fixedLayout="false"
+                >
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Lista de Clientes"></Title>
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>id}"/>
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>name}"/>
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>bornDate}"/>
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>gender}"/>
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>weight}"/>
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>country}"/>
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>options}"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{model>customerid}"/>
+                                <Text text="{model>name} ({model>email})"/>
+                                <Text text="{path: 'model>bornDate',formatter: '.formatter.formatDate'}"/>
+                                <Text text="{path: 'model>gender', formatter: '.formatter.formatGender'}"/>
+                                <Text text="{model>weight}"/>
+                                <Text text="{model>country}"/>
+                                <Hbox>
+                                    <Button app:customerid="{model>customerid}" icon="sap-icon://edit" press="onEdit"/>
+                                    <Button app:customerid="{model>customerid}" icon="sap-icon://delete" press="onDelete" class="sapUiTinyMarginBegin"/>
+                                </Hbox>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Vbox>
+        </content>
+        <footer>
+            <Toolbar>
+                <Button text="Atualizar" press="onFilterEvent" type="Emphasized"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

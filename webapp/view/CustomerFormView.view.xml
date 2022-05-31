@@ -1,0 +1,93 @@
+<mvc:View
+    controllerName="zns.fioricrm.controller.CustomerFormView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <Page id="page2" title="{i18n>customerRegisterForm}" showNavButton="true" navButtonPress="onPageBack">
+    
+        <VBox class="sapUiSmallMargin">
+            <f:Form id="FormChange354"
+                editable="true">
+                <f:title>
+                    <core:Title text="Dados Gerais" />
+                </f:title>
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement label="{i18n>id}">
+                                <f:fields>
+                                    <Input value="{/customerid}" id="name"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>name}">
+                                <f:fields>
+                                    <Input id="customer.name" value="{/name}" required="true"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>email}">
+                                <f:fields>
+                                    <Input value="{/email}" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>bornDate}">
+                                <f:fields>
+                                    <!--<Input value="{path: '/bornDate', type: 'sap.ui.model.type.Date', formatOptions: { style:'short' } }" type="Text" change="onChangeDate"/> -->
+                                    <DatePicker value="{path: '/bornDate', type: 'sap.ui.model.type.Date', formatOptions: { style:'short' } }" change="onChangeDate" placeholder="dd/MM/yyyy"/> 
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>weight}">
+                                <f:fields>
+                                    <Input value="{/weight}" type="Text" liveChange="onLiveChangeWeight" valueLiveUpdate="true"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>gender}">
+                                <f:fields>
+                                    <RadioButtonGroup id="genderRadio" columns="3" width="100%" selectedIndex="{path:  '/gender', formatter: '.formatter.gender'}" 
+                                        select="onSelectGender">
+                                        <RadioButton id="genderM" text="{i18n>male}"/>
+                                        <RadioButton id="genderF" text="{i18n>female}"/>
+                                    </RadioButtonGroup>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>country}">
+                                <f:fields>
+                                    <Select id="country" selectedKey="{/country}">
+                                        <items>
+                                            <core:Item text="" key=""/>
+                                            <core:Item text="England" key="England"/>
+                                            <core:Item text="Germany" key="Germany"/>
+                                            <core:Item text="USA" key="USA"/>
+                                            <core:Item text="Brasil" key="BR"/>
+                                        </items>
+                                    </Select>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+        </VBox>
+
+        <Button text="Salvar" press="onSave" class="sapUiSmallMargin"/>
+        <Button text="Exibir Dados" press="onPrintOData" class="sapUiSmallMargin"/>
+    </Page>
+</mvc:View>
