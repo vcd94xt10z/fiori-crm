@@ -16,5 +16,14 @@
         "Weight": 62.52,
         "Gender": "F",
         "Country": "BR"
+    },
+    {
+        "Customerid": 3,
+        "Name": "Elon Musk",
+        "Email": "elon@gmail.com",
+        "BornDate": "/Date(1265502978000)/",
+        "Weight": 70.00,
+        "Gender": "M",
+        "Country": "AF"
     }
 ]

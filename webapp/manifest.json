@@ -110,7 +110,7 @@
         },
         {
           "name": "RouteCustomerEdit",
-          "pattern": "customer/{customerid}/edit",
+          "pattern": "customer/{Customerid}/edit",
           "target": [
             "TargetCustomerFormView"
           ]

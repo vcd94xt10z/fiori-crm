@@ -7,7 +7,7 @@
     <Page title="{i18n>customerListViewTitle}" showNavButton="true" navButtonPress="onPageBack">
         <content>
             <VBox>
-                <Table items="{path: 'model>/customerList'}" class="sapUiSmallMargin"
+                <Table items="{path: '/customerSet'}" class="sapUiSmallMargin"
                     id="table1"
                     width="auto"
                     fixedLayout="false"
@@ -43,15 +43,15 @@
                     <items>
                         <ColumnListItem>
                             <cells>
-                                <Text text="{model>customerid}"/>
-                                <Text text="{model>name} ({model>email})"/>
-                                <Text text="{path: 'model>bornDate',formatter: '.formatter.formatDate'}"/>
-                                <Text text="{path: 'model>gender', formatter: '.formatter.formatGender'}"/>
-                                <Text text="{model>weight}"/>
-                                <Text text="{model>country}"/>
+                                <Text text="{Customerid}"/>
+                                <Text text="{Name} ({Email})"/>
+                                <Text text="{path: 'BornDate',formatter: '.formatter.formatDate'}"/>
+                                <Text text="{path: 'Gender', formatter: '.formatter.formatGender'}"/>
+                                <Text text="{Weight}"/>
+                                <Text text="{Country}"/>
                                 <HBox>
-                                    <Button app:customerid="{model>customerid}" icon="sap-icon://edit" press="onEdit"/>
-                                    <Button app:customerid="{model>customerid}" icon="sap-icon://delete" press="onDelete" class="sapUiTinyMarginBegin"/>
+                                    <Button app:Customerid="{Customerid}" icon="sap-icon://edit" press="onEdit"/>
+                                    <Button app:Customerid="{Customerid}" icon="sap-icon://delete" press="onDelete" class="sapUiTinyMarginBegin"/>
                                 </HBox>
                             </cells>
                         </ColumnListItem>

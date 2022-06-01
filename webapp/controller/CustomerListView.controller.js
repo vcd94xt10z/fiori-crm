@@ -1,10 +1,9 @@
 sap.ui.define([
     "zns/fioricrm/controller/BaseController",
-    "../model/DAO",
     "sap/m/MessageToast",
     "sap/ui/core/UIComponent",
     "../model/formatter"
-],function(BaseController,DAO,MessageToast,UIComponent,formatter){
+],function(BaseController,MessageToast,UIComponent,formatter){
     "use strict";
 
     return BaseController.extend("zns.fioricrm.controller.CustomerListView",{
@@ -19,38 +18,36 @@ sap.ui.define([
         },
 
         onFilter: function(bShowMessage){
-            var that = this;
-            DAO.queryCustomer(function(result){
-                var oModel = new sap.ui.model.json.JSONModel();
-                oModel.setData({
-                    customerList: result.data
-                });
-                that.getOwnerComponent().setModel(oModel,"model");
-                if(bShowMessage === true){
-                    MessageToast.show("Dados atualizados");
+            var oModel = this.getOwnerComponent().getModel();
+            oModel.read("/customerSet",{
+                success: function(oData, oResponse){
+                },
+                error: function(oError){
                 }
             });
         },
 
         onEdit: function(oEvent){
             var oSource = oEvent.getSource();
-            var customerid = oSource.data("customerid");
-            var that = this;
+            var sCustomerid = oSource.data("Customerid");
             
             var oRouter = UIComponent.getRouterFor(this);
-            oRouter.navTo("RouteCustomerEdit",{customerid:customerid});
+            oRouter.navTo("RouteCustomerEdit",{Customerid:sCustomerid});
         },
 
         onDelete: function(oEvent){
             var oSource = oEvent.getSource();
-            var customerid = oSource.data("customerid");
-            var that = this;
+            var sCustomerid = oSource.data("Customerid");
+            var oModel = this.getOwnerComponent().getModel();
+            var sPath = "/customerSet("+sCustomerid+")";
             
-            DAO.deleteCustomer({customerid: customerid},function(result){
-                if(result.httpStatus == 204){
-                    MessageToast.show("Cliente removido");
-                    that.onFilter();
-                }else{
+            oModel.remove(sPath,{
+                success: function(oData, oResponse){
+                    if(oResponse.statusCode == 204){
+                        MessageToast.show("Cliente removido com sucesso");
+                    }
+                },
+                error: function(oError){
                     MessageToast.show("Erro em remover cliente");
                 }
             });

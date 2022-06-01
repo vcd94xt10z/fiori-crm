@@ -2,13 +2,12 @@ sap.ui.define([
     "zns/fioricrm/controller/BaseController",
     "sap/ui/core/UIComponent",
     "../model/formatter",
-    "../model/DAO",
     "sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (BaseController,UIComponent,formatter,DAO,MessageToast) {
+    function (BaseController,UIComponent,formatter,MessageToast) {
         "use strict";
 
         return BaseController.extend("zns.fioricrm.controller.CustomerFormView", {
@@ -17,18 +16,18 @@ sap.ui.define([
             onInit: function () {
                 var oRouter = UIComponent.getRouterFor(this);
                 oRouter.getRoute("RouteCustomerNew").attachMatched(this._onRouteMatchedNew,this);
-                oRouter.getRoute("RouteCustomerEdit").attachMatched(this._onRouteMatched,this);
+                oRouter.getRoute("RouteCustomerEdit").attachMatched(this._onRouteMatchedEdit,this);
             },
 
             onSelectGender: function(oEvent){
-                var oModel  = this.getOwnerComponent().getModel();
+                var oModel  = this.getView().getModel();
                 var oData   = oModel.getData();
-                var oParams = oData.gender = oEvent.getParameters();
+                var oParams = oEvent.getParameters();
 
                 if(oParams.selectedIndex == 1){
-                    oData.gender = 'F';
+                    oData.Gender = 'F';
                 }else{
-                    oData.gender = 'M';
+                    oData.Gender = 'M';
                 }
                 oModel.setData(oData);
             },
@@ -103,79 +102,78 @@ sap.ui.define([
                 var oModel = new sap.ui.model.json.JSONModel();
                 oModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
                 oModel.setData({
-                    customerid: '1',
-                    name: 'José da Silva',
-                    email: 'user@email.com.br',
-                    bornDate: oDate,
-                    weight: 0.0,
-                    gender: 'M',
-                    country: 'USA'
+                    Customerid: '1',
+                    Name: 'José da Silva',
+                    Email: 'user@email.com.br',
+                    BornDate: oDate,
+                    Weight: 0.0,
+                    Gender: 'M',
+                    Country: 'USA'
                 });
-                this.getOwnerComponent().setModel(oModel);
+                this.getView().setModel(oModel);
             },
 
             onPrintOData: function(){
-                var oModel = this.getOwnerComponent().getModel();
+                var oModel = this.getView().getModel();
                 var oData  = oModel.getData();
                 alert(JSON.stringify(oData));
             },
 
             onSave: function(){
-                var oModel = this.getOwnerComponent().getModel();
-                var oData  = oModel.getData();
+                var oModel1 = this.getOwnerComponent().getModel();
+                var oModel2 = this.getView().getModel();
+                var oData  = oModel2.getData();
                 var that   = this;
-
-                //console.log(oData);
 
                 // validações
                 var oName = this.getView().byId("customer.name");
                 oName.setValueState("None");
 
-                if(oData.name == ""){
+                if(oData.Name == ""){
                     oName.setValueState("Error");
                     MessageToast.show("Nome vazio");
                     return;
                 }
 
-                if(oData.customerid == ""){
-                    // obtendo próximo id disponível
-                    DAO.getNextId(function(result){
-                        oData.customerid = result.nextId;
-
-                        DAO.createCustomer(oData,function(result){
-                            if(result.httpStatus == 200){
+                if(oData.Customerid == ""){
+                    oModel1.create("/customerSet",oData,{
+                        success: function(oData, oResponse){
+                            if(oResponse.statusCode == 201){
+                                oModel2.setData(oData);
                                 MessageToast.show("Cliente cadastrado com sucesso");
-
-                                // atualizando model
-                                oModel.setData(oData);
-                                that.getOwnerComponent().setModel(oModel);
-                            }else{
-                                MessageToast.show("Erro: "+result.message);
                             }
-                        });
-                    });
+                        },
+                        error: function(oError){
+                            MessageToast.show("Erro");
+                        }}
+                    );
                 }else{
-                    DAO.updateCustomer(oData,function(result){
-                        if(result.httpStatus == 204){
-                            MessageToast.show("Cliente "+oData.customerid+" atualizado com sucesso");
-                        }else{
-                            MessageToast.show("Erro: "+result.message);
-                        }
-                    });
+                    oModel1.update("/customerSet("+oData.Customerid+")",oData,{
+                        success: function(oData, oResponse){
+                            if(oResponse.statusCode == 204){
+                                MessageToast.show("Cliente cadastrado com sucesso");
+                            }
+                        },
+                        error: function(oError){
+                            MessageToast.show("Erro");
+                        }}
+                    );
                 }
             },
 
-            _onRouteMatched: function(oEvent){
+            _onRouteMatchedEdit: function(oEvent){
                 var that = this;
                 var oArgs = oEvent.getParameter("arguments");
-                var customerid = oArgs.customerid;
+                var sCustomerId = oArgs.Customerid;
+                var oModel = this.getOwnerComponent().getModel();
+                var sPath  = "/customerSet("+sCustomerId+")";
 
-                DAO.readCustomer({customerid:customerid},function(result){
-                    //console.log(result.data);
-                    var oModel = new sap.ui.model.json.JSONModel();
-                    oModel.setData(result.data);
-                    oModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
-                    that.getOwnerComponent().setModel(oModel);
+                oModel.read(sPath,{
+                    success: function(oData, oResponse){
+                        that.getView().setModel(new sap.ui.model.json.JSONModel(oData));
+                    },
+                    error: function(oError){
+                    }
                 });
             },
 
@@ -183,15 +181,15 @@ sap.ui.define([
                 var oModel = new sap.ui.model.json.JSONModel();
                 oModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
                 oModel.setData({
-                    customerid: '',
-                    name: '',
-                    email: '',
-                    bornDate: null,
-                    weight: 0.0,
-                    gender: 'M',
-                    country: ''
+                    Customerid: '',
+                    Name: '',
+                    Email: '',
+                    BornDate: null,
+                    Weight: 0.0,
+                    Gender: 'M',
+                    Country: ''
                 });
-                this.getOwnerComponent().setModel(oModel);
+                this.getView().setModel(oModel);
             }
         });
     });

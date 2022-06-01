@@ -1,12 +1,11 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/UIComponent",
-    "../model/DAO"
+    "sap/ui/core/UIComponent"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,UIComponent,DAO) {
+    function (Controller,UIComponent) {
         "use strict";
 
         return Controller.extend("zns.fioricrm.controller.HomeView", {
@@ -14,32 +13,19 @@ sap.ui.define([
                 var oRouter = this.getOwnerComponent().getRouter();
                 var oTarget = oRouter.getTarget("TargetHomeView");
                 oTarget.attachDisplay(this.onDisplay,this);
-
-                this.getOwnerComponent().getModel().read("/customerSet",{
-                    success: function(oData, oResponse){
-                        console.log("-------------------------------")
-                        console.log(oData);
-                        console.log(oResponse);
-                    },
-                    error: function(oError){
-                        console.log("-------------------------------")
-                        console.log(oError);
-                    }
-                });
-            },
-
-            onBeforeRendering: function(){
-            },
-
-            onAfterRendering: function(){
             },
 
             onDisplay: function(oEvent){
-                var elem = this.getView().byId("customerCount");
+                var oTile = this.getView().byId("customerCount");
+                var oModel = this.getOwnerComponent().getModel();
 
-                DAO.queryCustomer(function(result){
-                    elem.setValue(result.data.length);
-                })
+                oModel.read("/customerSet",{
+                    success: function(oData, oResponse){
+                        oTile.setValue(oData.results.length);
+                    },
+                    error: function(oError){
+                    }
+                });
             },
 
             onCustomerNewPage: function(){

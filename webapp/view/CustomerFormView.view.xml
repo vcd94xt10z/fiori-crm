@@ -35,33 +35,33 @@
                         <f:formElements>
                             <f:FormElement label="{i18n>id}">
                                 <f:fields>
-                                    <Input value="{/customerid}" id="name"/>
+                                    <Input value="{/Customerid}" id="customer.id"/>
                                 </f:fields>
                             </f:FormElement>
                             <f:FormElement label="{i18n>name}">
                                 <f:fields>
-                                    <Input id="customer.name" value="{/name}" required="true"/>
+                                    <Input id="customer.name" value="{/Name}" required="true"/>
                                 </f:fields>
                             </f:FormElement>
                             <f:FormElement label="{i18n>email}">
                                 <f:fields>
-                                    <Input value="{/email}" />
+                                    <Input value="{/Email}" />
                                 </f:fields>
                             </f:FormElement>
                             <f:FormElement label="{i18n>bornDate}">
                                 <f:fields>
                                     <!--<Input value="{path: '/bornDate', type: 'sap.ui.model.type.Date', formatOptions: { style:'short' } }" type="Text" change="onChangeDate"/> -->
-                                    <DatePicker value="{path: '/bornDate', type: 'sap.ui.model.type.Date', formatOptions: { style:'short' } }" change="onChangeDate" placeholder="dd/MM/yyyy"/> 
+                                    <DatePicker value="{path: '/BornDate', type: 'sap.ui.model.type.Date', formatOptions: { style:'short' } }" change="onChangeDate" placeholder="dd/MM/yyyy"/> 
                                 </f:fields>
                             </f:FormElement>
                             <f:FormElement label="{i18n>weight}">
                                 <f:fields>
-                                    <Input value="{/weight}" type="Text" liveChange="onLiveChangeWeight" valueLiveUpdate="true"/>
+                                    <Input value="{/Weight}" type="Text" liveChange="onLiveChangeWeight" valueLiveUpdate="true"/>
                                 </f:fields>
                             </f:FormElement>
                             <f:FormElement label="{i18n>gender}">
                                 <f:fields>
-                                    <RadioButtonGroup id="genderRadio" columns="3" width="100%" selectedIndex="{path:  '/gender', formatter: '.formatter.gender'}" 
+                                    <RadioButtonGroup id="genderRadio" columns="3" width="100%" selectedIndex="{path:  '/Gender', formatter: '.formatter.gender'}" 
                                         select="onSelectGender">
                                         <RadioButton id="genderM" text="{i18n>male}"/>
                                         <RadioButton id="genderF" text="{i18n>female}"/>
@@ -70,7 +70,7 @@
                             </f:FormElement>
                             <f:FormElement label="{i18n>country}">
                                 <f:fields>
-                                    <Select id="country" selectedKey="{/country}">
+                                    <Select id="country" selectedKey="{/Country}">
                                         <items>
                                             <core:Item text="" key=""/>
                                             <core:Item text="England" key="England"/>
