@@ -15,7 +15,6 @@ sap.ui.define([
                 var oTarget = oRouter.getTarget("TargetHomeView");
                 oTarget.attachDisplay(this.onDisplay,this);
 
-                
                 this.getOwnerComponent().getModel().read("/customerSet",{
                     success: function(oData, oResponse){
                         console.log("-------------------------------")

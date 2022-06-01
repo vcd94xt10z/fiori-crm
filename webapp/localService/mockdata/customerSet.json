@@ -1,182 +1,20 @@
 [
     {
-        "Customerid": 486491284,
-        "Name": "Name1",
-        "Email": "Email1",
+        "Customerid": 1,
+        "Name": "Vinicius",
+        "Email": "teste@gmail.com",
         "BornDate": "/Date(1265502978000)/",
-        "Weight": 646099853329.36,
-        "Gender": "1",
-        "Country": "C1"
+        "Weight": 78.52,
+        "Gender": "M",
+        "Country": "BR"
     },
     {
-        "Customerid": 1530510807,
-        "Name": "Name2",
-        "Email": "Email2",
-        "BornDate": "/Date(112568479000)/",
-        "Weight": 5437063632998.61,
-        "Gender": "2",
-        "Country": "C2"
-    },
-    {
-        "Customerid": 924664885,
-        "Name": "Name3",
-        "Email": "Email3",
-        "BornDate": "/Date(541996550000)/",
-        "Weight": 1045748651959,
-        "Gender": "3",
-        "Country": "C3"
-    },
-    {
-        "Customerid": 1260739954,
-        "Name": "Name4",
-        "Email": "Email4",
-        "BornDate": "/Date(1150243051000)/",
-        "Weight": 1690000006929.04,
-        "Gender": "4",
-        "Country": "C4"
-    },
-    {
-        "Customerid": 1393616951,
-        "Name": "Name5",
-        "Email": "Email5",
-        "BornDate": "/Date(783753862000)/",
-        "Weight": 510710889939.21,
-        "Gender": "5",
-        "Country": "C5"
-    },
-    {
-        "Customerid": 1399225154,
-        "Name": "Name6",
-        "Email": "Email6",
-        "BornDate": "/Date(850901195000)/",
-        "Weight": 4210242801345.88,
-        "Gender": "6",
-        "Country": "C6"
-    },
-    {
-        "Customerid": 989763198,
-        "Name": "Name7",
-        "Email": "Email7",
-        "BornDate": "/Date(747637970000)/",
-        "Weight": 2231951239518.82,
-        "Gender": "7",
-        "Country": "C7"
-    },
-    {
-        "Customerid": 28655570,
-        "Name": "Name8",
-        "Email": "Email8",
-        "BornDate": "/Date(696299892000)/",
-        "Weight": 2433297384995.96,
-        "Gender": "8",
-        "Country": "C8"
-    },
-    {
-        "Customerid": 1055737539,
-        "Name": "Name9",
-        "Email": "Email9",
-        "BornDate": "/Date(347297597000)/",
-        "Weight": 4262998793274.16,
-        "Gender": "9",
-        "Country": "C9"
-    },
-    {
-        "Customerid": 1011028013,
-        "Name": "Name10",
-        "Email": "Email10",
-        "BornDate": "/Date(1159503206000)/",
-        "Weight": 8110781158320.6,
-        "Gender": "0",
-        "Country": "10"
-    },
-    {
-        "Customerid": 1227530975,
-        "Name": "Name11",
-        "Email": "Email11",
-        "BornDate": "/Date(1127099435000)/",
-        "Weight": 4667807202786.2,
-        "Gender": "1",
-        "Country": "11"
-    },
-    {
-        "Customerid": 651319762,
-        "Name": "Name12",
-        "Email": "Email12",
-        "BornDate": "/Date(489479082000)/",
-        "Weight": 4480230752378.7,
-        "Gender": "2",
-        "Country": "12"
-    },
-    {
-        "Customerid": 1769136863,
-        "Name": "Name13",
-        "Email": "Email13",
-        "BornDate": "/Date(567717943000)/",
-        "Weight": 7721173071768.13,
-        "Gender": "3",
-        "Country": "13"
-    },
-    {
-        "Customerid": 2029972220,
-        "Name": "Name14",
-        "Email": "Email14",
-        "BornDate": "/Date(839496972000)/",
-        "Weight": 2914007031358.77,
-        "Gender": "4",
-        "Country": "14"
-    },
-    {
-        "Customerid": 1988238187,
-        "Name": "Name15",
-        "Email": "Email15",
-        "BornDate": "/Date(784047507000)/",
-        "Weight": 9235213147476.31,
-        "Gender": "5",
-        "Country": "15"
-    },
-    {
-        "Customerid": 211378869,
-        "Name": "Name16",
-        "Email": "Email16",
-        "BornDate": "/Date(24992911000)/",
-        "Weight": 9719262698199.6,
-        "Gender": "6",
-        "Country": "16"
-    },
-    {
-        "Customerid": 1470130668,
-        "Name": "Name17",
-        "Email": "Email17",
-        "BornDate": "/Date(892825969000)/",
-        "Weight": 5082663253415.37,
-        "Gender": "7",
-        "Country": "17"
-    },
-    {
-        "Customerid": 33517347,
-        "Name": "Name18",
-        "Email": "Email18",
-        "BornDate": "/Date(427492908000)/",
-        "Weight": 1487460769712.92,
-        "Gender": "8",
-        "Country": "18"
-    },
-    {
-        "Customerid": 78575610,
-        "Name": "Name19",
-        "Email": "Email19",
-        "BornDate": "/Date(5664669000)/",
-        "Weight": 5062811982352.28,
-        "Gender": "9",
-        "Country": "19"
-    },
-    {
-        "Customerid": 2144768213,
-        "Name": "Name20",
-        "Email": "Email20",
-        "BornDate": "/Date(771973098000)/",
-        "Weight": 4209886777680.36,
-        "Gender": "0",
-        "Country": "20"
+        "Customerid": 2,
+        "Name": "Joana da Silva",
+        "Email": "joana@gmail.com",
+        "BornDate": "/Date(1265502978000)/",
+        "Weight": 62.52,
+        "Gender": "F",
+        "Country": "BR"
     }
 ]
