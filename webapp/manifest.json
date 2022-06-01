@@ -12,7 +12,7 @@
     "resources": "resources.json",
     "dataSources": {
       "mainService": {
-        "uri": "/sap/opu/odata/",
+        "uri": "/sap/opu/odata/SAP/ZCRM_SRV/",
         "type": "OData",
         "settings": {
           "annotations": [],

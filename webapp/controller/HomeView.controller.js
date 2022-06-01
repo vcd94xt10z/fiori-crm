@@ -14,6 +14,19 @@ sap.ui.define([
                 var oRouter = this.getOwnerComponent().getRouter();
                 var oTarget = oRouter.getTarget("TargetHomeView");
                 oTarget.attachDisplay(this.onDisplay,this);
+
+                
+                this.getOwnerComponent().getModel().read("/customerSet",{
+                    success: function(oData, oResponse){
+                        console.log("-------------------------------")
+                        console.log(oData);
+                        console.log(oResponse);
+                    },
+                    error: function(oError){
+                        console.log("-------------------------------")
+                        console.log(oError);
+                    }
+                });
             },
 
             onBeforeRendering: function(){

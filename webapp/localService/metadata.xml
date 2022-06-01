@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZCRM_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="customer" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Customerid" />
+                </Key>
+                <Property Name="Customerid" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Char255" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Char255" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="BornDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Weight" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Gender" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Single-Character Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Version Number Component" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            </EntityType>
+            <EntityContainer Name="ZCRM_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="customerSet" EntityType="ZCRM_SRV.customer" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+            </EntityContainer>
+            <atom:link rel="self" href="http://vhcalnplci:8000/sap/opu/odata/SAP/ZCRM_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+            <atom:link rel="latest-version" href="http://vhcalnplci:8000/sap/opu/odata/SAP/ZCRM_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

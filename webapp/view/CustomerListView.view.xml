@@ -6,7 +6,7 @@
     >
     <Page title="{i18n>customerListViewTitle}" showNavButton="true" navButtonPress="onPageBack">
         <content>
-            <Vbox>
+            <VBox>
                 <Table items="{path: 'model>/customerList'}" class="sapUiSmallMargin"
                     id="table1"
                     width="auto"
@@ -49,15 +49,15 @@
                                 <Text text="{path: 'model>gender', formatter: '.formatter.formatGender'}"/>
                                 <Text text="{model>weight}"/>
                                 <Text text="{model>country}"/>
-                                <Hbox>
+                                <HBox>
                                     <Button app:customerid="{model>customerid}" icon="sap-icon://edit" press="onEdit"/>
                                     <Button app:customerid="{model>customerid}" icon="sap-icon://delete" press="onDelete" class="sapUiTinyMarginBegin"/>
-                                </Hbox>
+                                </HBox>
                             </cells>
                         </ColumnListItem>
                     </items>
                 </Table>
-            </Vbox>
+            </VBox>
         </content>
         <footer>
             <Toolbar>

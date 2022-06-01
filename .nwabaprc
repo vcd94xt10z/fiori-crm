@@ -1,0 +1,12 @@
+{ 
+    "base": "./dist", 
+    "conn_usestrictssl" : false, 
+    "conn_server": "http://vhcalnplci:8000/",
+    "conn_client" : "001", 
+    "conn_user": "developer",
+    "conn_password": "abap001",
+    "abap_package": "$TMP",
+    "abap_bsp": "zcrm",
+    "abap_bsp_text": "CRM - Gestão de Relacionamento com o Cliente",
+    "abap_language": "en"
+}
