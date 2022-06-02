@@ -13,6 +13,26 @@ sap.ui.define([
             this.onFilter();
         },
 
+        onSearch: function(oEvent){
+            var oSource = oEvent.getSource();
+            var sValue  = oSource.getValue();
+            var oView   = this.getView();
+            var oTable  = oView.byId("table1");
+
+            var aFilters = [];
+            var oFilter = new sap.ui.model.Filter({
+                path: 'Name',
+                operator: sap.ui.model.FilterOperator.Contains,
+                value1: sValue
+            });
+            aFilters.push(oFilter);
+
+            oTable.bindRows({
+                path: '/customerSet',
+                filters: aFilters
+            });
+        },
+
         onFilterEvent: function(oEvent){
             this.onFilter(true);
         },

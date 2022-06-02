@@ -8,10 +8,16 @@
 
     <m:Page title="{i18n>customerListViewTitle}" showNavButton="true" navButtonPress="onPageBack" class="sapUiContentPadding">
 		<m:content>
-			<Table
+			<Table id="table1"
 				rows="{/customerSet}"
-				title="Clientes"
 				selectionMode="MultiToggle">
+				<toolbar>
+					<m:OverflowToolbar>
+					<m:Title id="title" text="Clientes"></m:Title>
+						<m:ToolbarSpacer/>
+						<m:SearchField search="onSearch" width="200px"/>
+					</m:OverflowToolbar>
+				</toolbar>
 				<columns>
 					<Column width="4rem">
 						<m:Label text="Id" />
