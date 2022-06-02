@@ -6,9 +6,9 @@
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
 >
-    <Page id="page2" title="{i18n>customerRegisterForm}" showNavButton="true" navButtonPress="onPageBack">
+    <Page id="page2" title="{i18n>customerRegisterForm}" showNavButton="true" navButtonPress="onPageBack" class="sapUiContentPadding">
     
-        <VBox class="sapUiSmallMargin">
+        <VBox>
             <f:Form id="FormChange354"
                 editable="true">
                 <f:title>
@@ -86,8 +86,11 @@
                 </f:formContainers>
             </f:Form>
         </VBox>
-
-        <Button text="Salvar" press="onSave" class="sapUiSmallMargin"/>
-        <Button text="Exibir Dados" press="onPrintOData" class="sapUiSmallMargin"/>
+        <footer>
+            <Toolbar>
+                <Button text="Salvar" press="onSave" type="Emphasized"/>
+                <Button text="Exibir Dados" press="onPrintOData"/>
+            </Toolbar>
+        </footer>
     </Page>
 </mvc:View>
