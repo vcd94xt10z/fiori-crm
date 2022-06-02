@@ -38,11 +38,24 @@ sap.ui.define([
         },
 
         onFilter: function(bShowMessage){
+            console.log("filter");
+            var oView = this.getView();
+            var oTable = oView.byId("table1");
             var oModel = this.getOwnerComponent().getModel();
+            var aSorters = [];
+            var bDescending = false;
+            var oSort = new sap.ui.model.Sorter("Name",bDescending);
+            aSorters.push(oSort);
+
             oModel.read("/customerSet",{
+                sorters: aSorters,
                 success: function(oData, oResponse){
+                    console.log(oData);
+                    console.log(oResponse);
+                    oModel.refresh(true);
                 },
                 error: function(oError){
+                    console.log(oError);
                 }
             });
         },

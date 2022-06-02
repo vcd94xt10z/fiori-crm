@@ -19,43 +19,43 @@
 					</m:OverflowToolbar>
 				</toolbar>
 				<columns>
-					<Column width="4rem">
+					<Column width="4rem" sortProperty="Customerid">
 						<m:Label text="Id" />
 						<template>
 							<m:Text text="{Customerid}" wrapping="false" />
 						</template>
 					</Column>
-                    <Column width="10rem">
+                    <Column width="10rem" id="colName" sortProperty="Name" filterProperty="Name" autoResizable="true">
 						<m:Label text="{i18n>name}" />
 						<template>
 							<m:Text text="{Name}" wrapping="false" />
 						</template>
 					</Column>
-                    <Column width="14rem">
+                    <Column width="14rem" sortProperty="Email">
 						<m:Label text="{i18n>email}" />
 						<template>
 							<m:Text text="{Email}" wrapping="false" />
 						</template>
 					</Column>
-                    <Column width="6rem">
+                    <Column width="6rem" sortProperty="BornDate">
 						<m:Label text="{i18n>bornDate}" />
 						<template>
 							<m:Text text="{path: 'BornDate',formatter: '.formatter.formatDate'}" wrapping="false"/>
 						</template>
 					</Column>
-                    <Column width="6rem">
+                    <Column width="6rem" sortProperty="Gender">
 						<m:Label text="{i18n>gender}" />
 						<template>
 							<m:Text text="{path: 'Gender', formatter: '.formatter.formatGender'}" wrapping="false"/>
 						</template>
 					</Column>
-                    <Column width="4rem">
+                    <Column width="4rem" sortProperty="Weight">
 						<m:Label text="{i18n>weight}" />
 						<template>
 							<m:Text text="{Weight}" wrapping="false" />
 						</template>
 					</Column>
-                    <Column width="4rem">
+                    <Column width="4rem" sortProperty="Country">
 						<m:Label text="{i18n>country}" />
 						<template>
 							<m:Text text="{Country}" wrapping="false" />
