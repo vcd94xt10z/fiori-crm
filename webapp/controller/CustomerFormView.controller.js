@@ -33,38 +33,54 @@ sap.ui.define([
             },
 
             onChangeDate: function(oEvent){
-                var sValue = oEvent.getParameter("value");
+                var sValue1 = oEvent.getParameter("value");
+                var sValue2 = "";
+                var sValue3 = "";
 
-                if(sValue == ""){
+                if(sValue1 == ""){
                     return "";
                 }
                 
                 // removendo tudo exceto numeros e ponto
-                sValue = sValue.replaceAll(/[^0-9]/g,'');
+                var sValue2 = sValue1.replaceAll(/[^0-9]/g,'');
 
-                sValue = sValue.substring(0,8);
+                sValue2 = sValue2.substring(0,8);
 
-                if(sValue.length == 6){
-                    sValue = sValue.substring(0,4)+"20"+sValue.substring(4,6);
+                if(sValue2.length == 6){
+                    sValue2 = sValue2.substring(0,4)+"20"+sValue2.substring(4,6);
                 }
                 
-                var aValue = sValue.split('');
+                var aValue = sValue2.split('');
                 
-                sValue = '';
+                sValue3 = '';
                 for(var i in aValue){
-                    sValue += aValue[i];
+                    sValue3 += aValue[i];
                     
                     switch(i){
                     case '1':
-                        sValue += '/';
+                        sValue3 += '/';
                         break;
                     case '3':
-                        sValue += '/';
+                        sValue3 += '/';
                         break;
                     }
                 }
 
-                oEvent.getSource().setValue(sValue);
+                oEvent.getSource().setValue(sValue3);
+
+                // atualizando o model
+                if(sValue3.length == 10){
+                    var day   = sValue2.substring(0,2);
+                    var month = sValue2.substring(2,4);
+                    var year  = sValue2.substring(4,8);
+                    var date  = year+"-"+month+"-"+day;
+                    
+                    var oModel = this.getView().getModel();
+                    var oData = oModel.getData();
+                    oData.BornDate = new Date();
+                    oData.BornDate.setTime(Date.parse(date));
+                    oModel.setData(oData);
+                }
             },
 
             onLiveChangeWeight: function(oEvent){

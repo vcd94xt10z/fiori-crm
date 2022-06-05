@@ -98,7 +98,7 @@
                     <Column width="6rem" sortProperty="BornDate">
 						<m:Label text="{i18n>bornDate}" />
 						<template>
-							<m:Text text="{path: 'BornDate',formatter: '.formatter.formatDate'}" wrapping="false"/>
+							<m:Text text="{path: 'BornDate',formatter: '.formatter.formatDate', type: 'sap.ui.model.odata.type.Date'}" wrapping="false"/>
 						</template>
 					</Column>
                     <Column width="6rem" sortProperty="Gender">
