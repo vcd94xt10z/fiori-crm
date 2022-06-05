@@ -56,13 +56,13 @@
 
 					<fb:FilterItem name="Limite" label="{i18n>limit}">
 						<fb:control>
-							<m:Input value="{filter>/Limit}"/>
+							<m:Input value="{filter>/Limit}" type="Number"/>
 						</fb:control>
 					</fb:FilterItem>
 
 					<fb:FilterItem name="Offset" label="{i18n>offset}">
 						<fb:control>
-							<m:Input value="{filter>/Offset}"/>
+							<m:Input value="{filter>/Offset}" type="Number"/>
 						</fb:control>
 					</fb:FilterItem>
 				</fb:filterItems>
@@ -70,6 +70,9 @@
 
 			<Table id="table1"
 				rows="{/customerSet}"
+				visibleRowCount="10"
+				threshold="0"
+				firstVisibleRow="1"
 				selectionMode="MultiToggle">
 				<toolbar>
 					<m:OverflowToolbar>

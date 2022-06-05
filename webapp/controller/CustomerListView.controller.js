@@ -16,7 +16,7 @@ sap.ui.define([
                 "Customerid": "",
                 "Name": "",
                 "Email": "",
-                "SortField": "Name",
+                "SortField": "Customerid",
                 "SortType": "ASC",
                 "Limit": 10,
                 "Offset": 0
@@ -78,26 +78,15 @@ sap.ui.define([
             oFData.Offset = parseInt(oFData.Offset);
             oFData.Limit  = parseInt(oFData.Limit);
 
-            /*
-            var oModel = this.getOwnerComponent().getModel();
-            oModel.read("customerSet",{
-                sorters: aSorter,
-                filters: aFilters,
-                success: function(oData, oResponse){
-                    console.log(oData);
-                    console.log(oResponse);
-                },
-                error: function(oError){
-                    console.log(oError);
-                }
-            });
-            */
+            oTable.setVisibleRowCount(oFData.Limit);
+            oTable.setFirstVisibleRow(oFData.Offset);
 
             // executando filtro
             oTable.bindRows({
                 path: '/customerSet',
                 sorter: aSorter,
                 filters: aFilters
+                //parameters: { "zskip": "1" }
                 //startIndex: oFData.Offset,
                 //length: oFData.Limit
             });
