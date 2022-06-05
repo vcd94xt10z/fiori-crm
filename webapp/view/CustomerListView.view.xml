@@ -131,10 +131,5 @@
                 </columns>
             </Table>
 		</m:content>
-        <m:footer>
-            <m:Toolbar>
-                <m:Button text="Atualizar" press="onFilterEvent" type="Emphasized"/>
-            </m:Toolbar>
-        </m:footer>
 	</m:Page>
 </mvc:View>

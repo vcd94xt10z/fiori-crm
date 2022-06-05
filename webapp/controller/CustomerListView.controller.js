@@ -18,12 +18,12 @@ sap.ui.define([
                 "Email": "",
                 "SortField": "Name",
                 "SortType": "ASC",
-                "Limit": "10",
-                "Offset": "0"
+                "Limit": 10,
+                "Offset": 0
             });
             oView.setModel(oFModel,"filter");
 
-            this.onFilter();
+            this.onFilterSearch();
         },
 
         onFilterReset: function(){
@@ -40,8 +40,6 @@ sap.ui.define([
             // aplicando filtros
             var aFilters = [];
             var aSorter = [];
-
-            console.log(oFData);
 
             if(oFData.Customerid != ''){
                 oFilter = new sap.ui.model.Filter({
@@ -77,6 +75,9 @@ sap.ui.define([
             var oSort = new sap.ui.model.Sorter(oFData.SortField,bDescending);
             aSorter.push(oSort);
 
+            oFData.Offset = parseInt(oFData.Offset);
+            oFData.Limit  = parseInt(oFData.Limit);
+
             /*
             var oModel = this.getOwnerComponent().getModel();
             oModel.read("customerSet",{
@@ -96,36 +97,9 @@ sap.ui.define([
             oTable.bindRows({
                 path: '/customerSet',
                 sorter: aSorter,
-                filters: aFilters,
-                startIndex: oFData.Offset,
-                length: oFData.Limit
-            });
-        },
-
-        onFilterEvent: function(oEvent){
-            this.onFilter(true);
-        },
-
-        onFilter: function(bShowMessage){
-            console.log("filter");
-            var oView = this.getView();
-            var oTable = oView.byId("table1");
-            var oModel = this.getOwnerComponent().getModel();
-            var aSorters = [];
-            var bDescending = false;
-            var oSort = new sap.ui.model.Sorter("Name",bDescending);
-            aSorters.push(oSort);
-
-            oModel.read("/customerSet",{
-                sorters: aSorters,
-                success: function(oData, oResponse){
-                    console.log(oData);
-                    console.log(oResponse);
-                    oModel.refresh(true);
-                },
-                error: function(oError){
-                    console.log(oError);
-                }
+                filters: aFilters
+                //startIndex: oFData.Offset,
+                //length: oFData.Limit
             });
         },
 
