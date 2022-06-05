@@ -10,26 +10,95 @@ sap.ui.define([
         formatter: formatter,
         
         onInit: function(){
+            var oView = this.getView();
+            var oFModel = new sap.ui.model.json.JSONModel();
+            oFModel.setData({
+                "Customerid": "",
+                "Name": "",
+                "Email": "",
+                "SortField": "Name",
+                "SortType": "ASC",
+                "Limit": "10",
+                "Offset": "0"
+            });
+            oView.setModel(oFModel,"filter");
+
             this.onFilter();
         },
 
-        onSearch: function(oEvent){
-            var oSource = oEvent.getSource();
-            var sValue  = oSource.getValue();
+        onFilterReset: function(){
+
+        },
+
+        onFilterSearch: function(oEvent){
             var oView   = this.getView();
             var oTable  = oView.byId("table1");
+            var oFModel = oView.getModel("filter");
+            var oFData  = oFModel.getData();
+            var oFilter = null;
 
+            // aplicando filtros
             var aFilters = [];
-            var oFilter = new sap.ui.model.Filter({
-                path: 'Name',
-                operator: sap.ui.model.FilterOperator.Contains,
-                value1: sValue
-            });
-            aFilters.push(oFilter);
+            var aSorter = [];
 
+            console.log(oFData);
+
+            if(oFData.Customerid != ''){
+                oFilter = new sap.ui.model.Filter({
+                    path: 'Customerid',
+                    operator: sap.ui.model.FilterOperator.EQ,
+                    value1: oFData.Customerid
+                });
+                aFilters.push(oFilter);
+            }
+
+            if(oFData.Name != ''){
+                oFilter = new sap.ui.model.Filter({
+                    path: 'Name',
+                    operator: sap.ui.model.FilterOperator.Contains,
+                    value1: oFData.Name
+                });
+                aFilters.push(oFilter);
+            }
+
+            if(oFData.Email != ''){
+                oFilter = new sap.ui.model.Filter({
+                    path: 'Email',
+                    operator: sap.ui.model.FilterOperator.Contains,
+                    value1: oFData.Email
+                });
+                aFilters.push(oFilter);
+            }
+
+            var bDescending = false;
+            if(oFData.SortType == "DESC"){
+                bDescending = true;
+            }
+            var oSort = new sap.ui.model.Sorter(oFData.SortField,bDescending);
+            aSorter.push(oSort);
+
+            /*
+            var oModel = this.getOwnerComponent().getModel();
+            oModel.read("customerSet",{
+                sorters: aSorter,
+                filters: aFilters,
+                success: function(oData, oResponse){
+                    console.log(oData);
+                    console.log(oResponse);
+                },
+                error: function(oError){
+                    console.log(oError);
+                }
+            });
+            */
+
+            // executando filtro
             oTable.bindRows({
                 path: '/customerSet',
-                filters: aFilters
+                sorter: aSorter,
+                filters: aFilters,
+                startIndex: oFData.Offset,
+                length: oFData.Limit
             });
         },
 

@@ -135,15 +135,32 @@ sap.ui.define([
                     return;
                 }
 
-                if(oData.Customerid == ""){
+                // casting
+                oData.Customerid = parseInt(oData.Customerid);
+               
+                if(oData.Customerid == null || isNaN(oData.Customerid)){
+                    oData.Customerid = 0;
+                }
+
+                //oData.BornDate = new Date();
+
+                console.log("objeto antes de ser enviado");
+                console.log(oData);
+
+                if(oData.Customerid == 0){
                     oModel1.create("/customerSet",oData,{
                         success: function(oData, oResponse){
                             if(oResponse.statusCode == 201){
                                 oModel2.setData(oData);
                                 MessageToast.show("Cliente cadastrado com sucesso");
+                            }else{
+                                console.log(oData);
+                                console.log(oResponse);
+                                MessageToast.show("Erro");    
                             }
                         },
                         error: function(oError){
+                            console.log(oError);
                             MessageToast.show("Erro");
                         }}
                     );
@@ -151,7 +168,7 @@ sap.ui.define([
                     oModel1.update("/customerSet("+oData.Customerid+")",oData,{
                         success: function(oData, oResponse){
                             if(oResponse.statusCode == 204){
-                                MessageToast.show("Cliente cadastrado com sucesso");
+                                MessageToast.show("Cliente atualizado com sucesso");
                             }
                         },
                         error: function(oError){

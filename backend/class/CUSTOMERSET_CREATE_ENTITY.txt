@@ -1,0 +1,38 @@
+method CUSTOMERSET_CREATE_ENTITY.
+  DATA: ls_customer TYPE zcrm_customer.
+
+  " copia os campos da request para a estrutura
+  io_data_provider->read_entry_data( IMPORTING es_data = er_entity ).
+
+  " validações
+  IF er_entity IS INITIAL.
+    RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+        exporting
+          http_status_code = 400
+          message          = 'Dados vazios'.
+  ENDIF.
+
+  IF er_entity-customerid <> 0.
+    RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+        exporting
+          http_status_code = 400
+          message          = 'Este método permite apenas criação'.
+  ENDIF.
+
+  " obtendo o id mais alto no sistema
+  SELECT MAX( customerid )
+    INTO er_entity-customerid
+    FROM zcrm_customer.
+
+  " incrementando 1
+  er_entity-customerid = er_entity-customerid + 1.
+
+  " inserindo o cliente
+  INSERT zcrm_customer FROM er_entity.
+  IF sy-subrc <> 0.
+    RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+      exporting
+        http_status_code = 400
+        message          = 'Erro ao inserir cliente'.
+  ENDIF.
+endmethod.

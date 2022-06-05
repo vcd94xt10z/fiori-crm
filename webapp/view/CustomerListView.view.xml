@@ -2,20 +2,78 @@
 	controllerName="zns.fioricrm.controller.CustomerListView"
 	xmlns="sap.ui.table"
 	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
 	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	xmlns:m="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
     height="100%">
 
     <m:Page title="{i18n>customerListViewTitle}" showNavButton="true" navButtonPress="onPageBack" class="sapUiContentPadding">
 		<m:content>
+			<fb:FilterBar reset="onFilterReset" search="onFilterSearch">
+				<fb:filterItems>
+					<fb:FilterItem name="Customerid" label="{i18n>id}">
+						<fb:control>
+							<m:Input value="{filter>/Customerid}"/>
+						</fb:control>
+					</fb:FilterItem>
+
+					<fb:FilterItem name="Name" label="{i18n>name}">
+						<fb:control>
+							<m:Input value="{filter>/Name}"/>
+						</fb:control>
+					</fb:FilterItem>
+
+					<fb:FilterItem name="Email" label="{i18n>email}">
+						<fb:control>
+							<m:Input value="{filter>/Email}"/>
+						</fb:control>
+					</fb:FilterItem>
+
+					<fb:FilterItem name="SortField" label="{i18n>sort}">
+						<fb:control>
+							<m:Select selectedKey="{filter>/SortField}">
+								<m:items>
+									<core:Item text="" key=""/>
+									<core:Item text="{i18n>id}" key="Customerid"/>
+									<core:Item text="{i18n>name}" key="Name"/>
+								</m:items>
+							</m:Select>
+						</fb:control>
+					</fb:FilterItem>
+
+					<fb:FilterItem name="SortType" label="{i18n>sortType}">
+						<fb:control>
+							<m:Select selectedKey="{filter>/SortType}">
+								<m:items>
+									<core:Item text="" key=""/>
+									<core:Item text="{i18n>asc}" key="ASC"/>
+									<core:Item text="{i18n>desc}" key="DESC"/>
+								</m:items>
+							</m:Select>
+						</fb:control>
+					</fb:FilterItem>
+
+					<fb:FilterItem name="Limite" label="{i18n>limit}">
+						<fb:control>
+							<m:Input value="{filter>/Limit}"/>
+						</fb:control>
+					</fb:FilterItem>
+
+					<fb:FilterItem name="Offset" label="{i18n>offset}">
+						<fb:control>
+							<m:Input value="{filter>/Offset}"/>
+						</fb:control>
+					</fb:FilterItem>
+				</fb:filterItems>
+			</fb:FilterBar>
+
 			<Table id="table1"
 				rows="{/customerSet}"
 				selectionMode="MultiToggle">
 				<toolbar>
 					<m:OverflowToolbar>
-					<m:Title id="title" text="Clientes"></m:Title>
-						<m:ToolbarSpacer/>
-						<m:SearchField search="onSearch" width="200px"/>
+						<m:Title id="title" text="Clientes"></m:Title>
 					</m:OverflowToolbar>
 				</toolbar>
 				<columns>

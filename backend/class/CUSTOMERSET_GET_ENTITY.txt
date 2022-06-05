@@ -1,0 +1,30 @@
+method CUSTOMERSET_GET_ENTITY.
+  DATA: ls_key_tab    LIKE LINE OF it_key_tab.
+  DATA: ld_customerid TYPE int4.
+
+  " obtendo o id
+  READ TABLE it_key_tab INTO ls_key_tab INDEX 1.
+  IF sy-subrc = 0.
+    ld_customerid = ls_key_tab-value.
+  ENDIF.
+
+  " validações
+  IF ld_customerid = 0.
+    RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+        exporting
+          http_status_code = 400
+          message          = 'Chave primaria vazia'.
+  ENDIF.
+
+  SELECT SINGLE *
+    INTO er_entity
+    FROM zcrm_customer
+   WHERE customerid = ld_customerid.
+
+  IF sy-subrc <> 0.
+    RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+      exporting
+        http_status_code = 404
+        message          = |O cliente { ld_customerid } não existe|.
+  ENDIF.
+endmethod.

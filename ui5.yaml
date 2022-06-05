@@ -17,8 +17,8 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /sap
-            url: http://localhost
-            #url: http://vhcalnplci:8000
+            #url: http://localhost
+            url: http://vhcalnplci:8000
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

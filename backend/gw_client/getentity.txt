@@ -1,0 +1,19 @@
+GET /sap/opu/odata/SAP/ZCRM_SRV/customerSet(1)?$format=json
+
+200
+{
+  "d" : {
+    "__metadata" : {
+      "id" : "http://vhcalnplci:8000/sap/opu/odata/SAP/ZCRM_SRV/customerSet(1)",
+      "uri" : "http://vhcalnplci:8000/sap/opu/odata/SAP/ZCRM_SRV/customerSet(1)",
+      "type" : "ZCRM_SRV.customer"
+    },
+    "Customerid" : 1,
+    "Name" : "Vinicius Cesar Dias",
+    "Email" : "dias.viniciuscesar@gmail.com",
+    "BornDate" : "\/Date(1653350400000)\/",
+    "Weight" : "1.00",
+    "Gender" : "M",
+    "Country" : "BR"
+  }
+}

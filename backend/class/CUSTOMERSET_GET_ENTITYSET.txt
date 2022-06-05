@@ -1,0 +1,7 @@
+method CUSTOMERSET_GET_ENTITYSET.
+  CLEAR et_entityset.
+
+  SELECT *
+    INTO TABLE et_entityset
+    FROM zcrm_customer.
+endmethod.

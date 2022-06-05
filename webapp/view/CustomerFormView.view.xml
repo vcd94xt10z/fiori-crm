@@ -73,9 +73,9 @@
                                     <Select id="country" selectedKey="{/Country}">
                                         <items>
                                             <core:Item text="" key=""/>
-                                            <core:Item text="England" key="England"/>
-                                            <core:Item text="Germany" key="Germany"/>
-                                            <core:Item text="USA" key="USA"/>
+                                            <core:Item text="England" key="EN"/>
+                                            <core:Item text="Germany" key="DE"/>
+                                            <core:Item text="USA" key="US"/>
                                             <core:Item text="Brasil" key="BR"/>
                                         </items>
                                     </Select>

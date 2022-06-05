@@ -27,3 +27,17 @@ IDE: VSCode
 - MockServer :heavy_check_mark:
 - QUnit
 - Sinon
+
+# Observações
+Sempre que tiver duvidas na hora de saber como passar um valor do frontend para o backend, faça uma requisição de leitura, exemplo
+```
+/sap/opu/odata/SAP/ZCRM_SRV/customerSet?$format=json
+```
+Da forma que vier o json, você deve passar para CRIAR ou ATUALIZAR uma entidade
+
+Em regra geral, funciona da seguinte maneira:
+- Int: Não tem aspas, é passado apenas os numeros
+- Decimal: Tem aspas duplas, é passado os numeros com ponto "." como separador decimal
+- Data: Tem aspas duplas, é passado no formato "\/Date(1653350400000)\/"
+- Todo o restante: é passado como String, tem aspas duplas
+

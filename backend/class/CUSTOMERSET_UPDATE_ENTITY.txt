@@ -1,0 +1,42 @@
+method CUSTOMERSET_UPDATE_ENTITY.
+  DATA: ls_customer TYPE zcrm_customer.
+
+  " recebendo dados
+  io_data_provider->read_entry_data( IMPORTING es_data = er_entity ).
+
+  " validações
+  IF er_entity IS INITIAL.
+    RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+        exporting
+          http_status_code = 400
+          message          = 'Dados vazios'.
+  ENDIF.
+
+  IF er_entity-customerid = 0.
+    RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+        exporting
+          http_status_code = 400
+          message          = 'Chave primaria vazia'.
+  ENDIF.
+
+  SELECT SINGLE *
+    INTO ls_customer
+    FROM zcrm_customer
+   WHERE customerid = er_entity-customerid.
+
+  IF sy-subrc <> 0.
+    RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+      exporting
+        http_status_code = 404
+        message          = |O cliente { er_entity-customerid } não existe|.
+  ENDIF.
+
+  " atualizando cliente
+  MODIFY zcrm_customer FROM er_entity.
+  IF sy-subrc <> 0.
+    RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+      exporting
+        http_status_code = 400
+        message          = 'Erro ao atualizar cliente'.
+  ENDIF.
+endmethod.
