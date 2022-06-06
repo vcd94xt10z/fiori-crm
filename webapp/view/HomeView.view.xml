@@ -5,8 +5,8 @@
     xmlns="sap.m"
 >
     <Page title="{i18n>title}">
-        <GenericTile header="{i18n>newCustomer}" subheader="" press="onCustomerNewPage" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
-        <GenericTile header="{i18n>listCustomers}" press="onCustomerListPage" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+        <GenericTile id="buttonCustomerNew" header="{i18n>newCustomer}" subheader="" press="onCustomerNewPage" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+        <GenericTile id="buttonCustomerList" header="{i18n>listCustomers}" press="onCustomerListPage" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
             <TileContent>
                 <NumericContent value="0" id="customerCount"></NumericContent>
             </TileContent>

@@ -16,7 +16,7 @@ IDE: VSCode
 - Filtrar, ordenar e limitar clientes :heavy_check_mark:
 - Operações oData em um ambiente OnPremise :heavy_check_mark:
 - Operações oData localmente usando MockServer :heavy_check_mark:
-- Teste unitário
+- Teste unitário :heavy_check_mark:
 - Teste de integração
 
 # Conceitos aplicados
@@ -25,7 +25,7 @@ IDE: VSCode
 - Rotas :heavy_check_mark:
 - DataBinding :heavy_check_mark:
 - MockServer :heavy_check_mark:
-- QUnit
+- QUnit :heavy_check_mark:
 - Sinon
 
 # Observações
