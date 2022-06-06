@@ -1,18 +1,27 @@
 sap.ui.define([
-	"sap/ui/test/Opa5"
-], function (Opa5) {
+	"sap/ui/test/Opa5",
+	"sap/ui/test/actions/Press"
+], function (Opa5, Press) {
 	"use strict";
 
 	Opa5.createPageObjects({
 		onTheHomePage: {
 
-			actions: {},
+			actions: {
+				iPressOnTheNewButton : function () {
+					return this.waitFor({
+						viewName: "HomeView",
+						id: "buttonCustomerNew",
+						actions : new Press(),
+						errorMessage : "The new button could not be pressed"
+					});
+				},
+			},
 
 			assertions: {
 
 				iShouldSeeTheApp: function () {
 					return this.waitFor({
-						id: "app",
 						viewName: "HomeView",
 						success: function () {
 							Opa5.assert.ok(true, "The HomeView view is displayed");
@@ -23,7 +32,8 @@ sap.ui.define([
 
 				iShouldSeeTheButtoNew: function () {
 					return this.waitFor({
-						id : "buttonCustomerNew",
+						viewName: "HomeView",
+						id: "buttonCustomerNew",
 						timeout: 3,
 						success : function (oList) {
 							Opa5.assert.ok(oList, "Found the button new customer");

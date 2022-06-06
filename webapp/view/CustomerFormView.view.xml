@@ -45,17 +45,17 @@
                             </f:FormElement>
                             <f:FormElement label="{i18n>email}">
                                 <f:fields>
-                                    <Input value="{/Email}" />
+                                    <Input id="customer.email" value="{/Email}" />
                                 </f:fields>
                             </f:FormElement>
                             <f:FormElement label="{i18n>bornDate}">
                                 <f:fields>
-                                    <DatePicker value="{path: '/BornDate', type: 'sap.ui.model.odata.type.Date', formatOptions: { UTC:true, pattern: 'dd/MM/yyyy'}}" displayFormat="short" change="onChangeDate" placeholder="dd/MM/yyyy"/> 
+                                    <DatePicker id="customer.bornDate" value="{path: '/BornDate', type: 'sap.ui.model.odata.type.Date', formatOptions: { UTC:true, pattern: 'dd/MM/yyyy'}}" displayFormat="short" change="onChangeDate" placeholder="dd/MM/yyyy"/> 
                                 </f:fields>
                             </f:FormElement>
                             <f:FormElement label="{i18n>weight}">
                                 <f:fields>
-                                    <Input value="{/Weight}" type="Text" liveChange="onLiveChangeWeight" valueLiveUpdate="true"/>
+                                    <Input id="customer.weight" value="{/Weight}" type="Text" liveChange="onLiveChangeWeight" valueLiveUpdate="true"/>
                                 </f:fields>
                             </f:FormElement>
                             <f:FormElement label="{i18n>gender}">
@@ -69,7 +69,7 @@
                             </f:FormElement>
                             <f:FormElement label="{i18n>country}">
                                 <f:fields>
-                                    <Select id="country" selectedKey="{/Country}">
+                                    <Select id="customer.country" selectedKey="{/Country}">
                                         <items>
                                             <core:Item text="" key=""/>
                                             <core:Item text="England" key="EN"/>
@@ -87,8 +87,8 @@
         </VBox>
         <footer>
             <Toolbar>
-                <Button text="Salvar" press="onSave" type="Emphasized"/>
-                <Button text="Exibir Dados" press="onPrintOData"/>
+                <Button id="buttonSave" text="Salvar" press="onSave" type="Emphasized"/>
+                <Button id="buttonShowData" text="Exibir Dados" press="onPrintOData"/>
             </Toolbar>
         </footer>
     </Page>
