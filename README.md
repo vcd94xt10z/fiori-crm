@@ -13,7 +13,7 @@ IDE: VSCode
 - Atualizar cliente :heavy_check_mark:
 - Remover cliente :heavy_check_mark:
 - Listar clientes :heavy_check_mark:
-- Filtrar, ordenar e limitar clientes
+- Filtrar, ordenar e limitar clientes :heavy_check_mark:
 - Operações oData em um ambiente OnPremise :heavy_check_mark:
 - Operações oData localmente usando MockServer :heavy_check_mark:
 - Teste unitário

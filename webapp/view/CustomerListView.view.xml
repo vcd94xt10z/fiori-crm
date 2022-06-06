@@ -37,6 +37,11 @@
 									<core:Item text="" key=""/>
 									<core:Item text="{i18n>id}" key="Customerid"/>
 									<core:Item text="{i18n>name}" key="Name"/>
+									<core:Item text="{i18n>email}" key="Email"/>
+									<core:Item text="{i18n>gender}" key="Gender"/>
+									<core:Item text="{i18n>bornDate}" key="BornDate"/>
+									<core:Item text="{i18n>weight}" key="Weight"/>
+									<core:Item text="{i18n>country}" key="Country"/>
 								</m:items>
 							</m:Select>
 						</fb:control>
@@ -59,12 +64,6 @@
 							<m:Input value="{filter>/Limit}" type="Number"/>
 						</fb:control>
 					</fb:FilterItem>
-
-					<fb:FilterItem name="Offset" label="{i18n>offset}">
-						<fb:control>
-							<m:Input value="{filter>/Offset}" type="Number"/>
-						</fb:control>
-					</fb:FilterItem>
 				</fb:filterItems>
 			</fb:FilterBar>
 
@@ -72,7 +71,6 @@
 				rows="{/customerSet}"
 				visibleRowCount="10"
 				threshold="0"
-				firstVisibleRow="1"
 				selectionMode="MultiToggle">
 				<toolbar>
 					<m:OverflowToolbar>
@@ -101,7 +99,7 @@
                     <Column width="6rem" sortProperty="BornDate">
 						<m:Label text="{i18n>bornDate}" />
 						<template>
-							<m:Text text="{path: 'BornDate',formatter: '.formatter.formatDate', type: 'sap.ui.model.odata.type.Date'}" wrapping="false"/>
+							<m:Text text="{path: 'BornDate', type: 'sap.ui.model.odata.type.Date', formatOptions: { UTC:true, pattern: 'dd/MM/yyyy'}}" wrapping="false"/>
 						</template>
 					</Column>
                     <Column width="6rem" sortProperty="Gender">

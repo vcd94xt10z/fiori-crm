@@ -3,7 +3,7 @@
         "Customerid": 1,
         "Name": "Vinicius",
         "Email": "teste@gmail.com",
-        "BornDate": "/Date(1265502978000)/",
+        "BornDate": "/Date(606182401000)/",
         "Weight": 78.52,
         "Gender": "M",
         "Country": "BR"
@@ -12,7 +12,7 @@
         "Customerid": 2,
         "Name": "Joana da Silva",
         "Email": "joana@gmail.com",
-        "BornDate": "/Date(1265502978000)/",
+        "BornDate": "/Date(953097312000)/",
         "Weight": 62.52,
         "Gender": "F",
         "Country": "BR"
@@ -22,7 +22,7 @@
         "Name": "Elon Musk",
         "Email": "elon@gmail.com",
         "BornDate": "/Date(1265502978000)/",
-        "Weight": 70.00,
+        "Weight": 70,
         "Gender": "M",
         "Country": "AF"
     }

@@ -8,6 +8,16 @@ sap.ui.define([
                 return "";
             }
 
+            var aList = sValue.split("/");
+            if(aList.length != 3){
+                return "";
+            }
+
+            // verificando se o ano esta no final
+            if(aList[2].length == 4){
+                sValue = aList[2]+"-"+aList[1]+"-"+aList[0];
+            }
+
             var d     = new Date(sValue);
             var day   = d.getDate();
             var month = d.getMonth()+1;

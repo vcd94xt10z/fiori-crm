@@ -50,7 +50,6 @@
                             </f:FormElement>
                             <f:FormElement label="{i18n>bornDate}">
                                 <f:fields>
-                                    <!--<Input value="{path: '/bornDate', type: 'sap.ui.model.type.Date', formatOptions: { style:'short' } }" type="Text" change="onChangeDate"/> -->
                                     <DatePicker value="{path: '/BornDate', type: 'sap.ui.model.odata.type.Date', formatOptions: { UTC:true, pattern: 'dd/MM/yyyy'}}" displayFormat="short" change="onChangeDate" placeholder="dd/MM/yyyy"/> 
                                 </f:fields>
                             </f:FormElement>
