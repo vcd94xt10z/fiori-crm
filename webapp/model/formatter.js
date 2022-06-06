@@ -3,25 +3,14 @@ sap.ui.define([
     "use strict";
 
     return {
-        formatDate: function(sValue){
-            if(sValue == "" || sValue == undefined || sValue == null){
+        formatDate: function(oDate){
+            if(oDate == "" || oDate == undefined || oDate == null){
                 return "";
             }
 
-            var aList = sValue.split("/");
-            if(aList.length != 3){
-                return "";
-            }
-
-            // verificando se o ano esta no final
-            if(aList[2].length == 4){
-                sValue = aList[2]+"-"+aList[1]+"-"+aList[0];
-            }
-
-            var d     = new Date(sValue);
-            var day   = d.getDate();
-            var month = d.getMonth()+1;
-            var year  = d.getFullYear();
+            var day   = oDate.getDate();
+            var month = oDate.getMonth()+1;
+            var year  = oDate.getFullYear();
 
             if(day < 10){
                 day = "0"+day;
@@ -31,20 +20,25 @@ sap.ui.define([
                 month = "0"+month;
             }
 
-            sValue = day+"/"+month+"/"+year;
+            var sValue = day+"/"+month+"/"+year;
 
             return sValue;
         },
 
-        weight: function(sValue){
+        formatWeight: function(sValue){
+            if(sValue == null || sValue == undefined){
+                return "";
+            }
             try {
-                return sValue.replaceAll(/[^0-9.]/g,'');
+                sValue = String(sValue).replace(/[^0-9.]/g,'');
+                sValue = Number.parseFloat(sValue).toFixed(2);
+                return sValue;
             }catch(e){
-                return '';
+                return sValue;
             }
         },
 
-        gender: function(sValue){
+        genderIndex: function(sValue){
             if(sValue == 'F' ){
                 return 1;
             }

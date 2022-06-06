@@ -7,3 +7,7 @@ born_date DATE
 weight DECIMAL(10,3)
 gender CHAR(1) M or F
 country CHAR(2)
+
+Teste unitários
+- Testar mascaras
+- 

@@ -111,7 +111,7 @@
                     <Column width="4rem" sortProperty="Weight">
 						<m:Label text="{i18n>weight}" />
 						<template>
-							<m:Text text="{Weight}" wrapping="false" />
+							<m:Text text="{path: 'Weight', formatter: '.formatter.formatWeight'}" wrapping="false" />
 						</template>
 					</Column>
                     <Column width="4rem" sortProperty="Country">

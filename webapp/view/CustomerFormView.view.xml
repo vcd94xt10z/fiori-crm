@@ -60,7 +60,7 @@
                             </f:FormElement>
                             <f:FormElement label="{i18n>gender}">
                                 <f:fields>
-                                    <RadioButtonGroup id="genderRadio" columns="3" width="100%" selectedIndex="{path:  '/Gender', formatter: '.formatter.gender'}" 
+                                    <RadioButtonGroup id="genderRadio" columns="3" width="100%" selectedIndex="{path:  '/Gender', formatter: '.formatter.genderIndex'}" 
                                         select="onSelectGender">
                                         <RadioButton id="genderM" text="{i18n>male}"/>
                                         <RadioButton id="genderF" text="{i18n>female}"/>

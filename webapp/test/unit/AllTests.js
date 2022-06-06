@@ -1,5 +1,6 @@
 sap.ui.define([
-	"zns/fiori-crm/test/unit/controller/AppView.controller"
+	"zns/fiori-crm/test/unit/controller/HomeView.controller",
+	"./model/formatter"
 ], function () {
 	"use strict";
 });
