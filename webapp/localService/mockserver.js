@@ -20,10 +20,7 @@ sap.ui.define([
 			});
 
 			// simulate
-			// ATENÇÃO! esse caminho muda dependendo do lugar que é chamado
-			
-			//var sPath = "../localService/"; // para mock da aplicação
-			var sPath = "../../localService/"; // para testes integrados
+			var sPath = "/localService/";
 			oMockServer.simulate(sPath + "/metadata.xml", sPath + "/mockdata");
 
 			// start
