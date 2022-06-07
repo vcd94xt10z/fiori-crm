@@ -16,11 +16,14 @@ sap.ui.define([
 			// configure mock server with a delay
 			MockServer.config({
 				autoRespond: true,
-				autoRespondAfter: oUriParameters.get("serverDelay") || 10
+				autoRespondAfter: oUriParameters.get("serverDelay") || 2
 			});
 
 			// simulate
-			var sPath = "../localService/";
+			// ATENÇÃO! esse caminho muda dependendo do lugar que é chamado
+			
+			//var sPath = "../localService/"; // para mock da aplicação
+			var sPath = "../../localService/"; // para testes integrados
 			oMockServer.simulate(sPath + "/metadata.xml", sPath + "/mockdata");
 
 			// start
