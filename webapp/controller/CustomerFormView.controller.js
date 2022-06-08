@@ -111,24 +111,6 @@ sap.ui.define([
                 oEvent.getSource().setValue(newValue);
             },
 
-            onDefaultCustomer: function(){
-                var oDate = new Date();
-                oDate.setDate(oDate.getDate() - 2);
-
-                var oModel = new sap.ui.model.json.JSONModel();
-                oModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
-                oModel.setData({
-                    Customerid: '1',
-                    Name: 'José da Silva',
-                    Email: 'user@email.com.br',
-                    BornDate: oDate,
-                    Weight: 0.0,
-                    Gender: 'M',
-                    Country: 'USA'
-                });
-                this.getView().setModel(oModel);
-            },
-
             onPrintOData: function(){
                 var oModel = this.getView().getModel();
                 var oData  = oModel.getData();
@@ -139,8 +121,7 @@ sap.ui.define([
                 var oModel1 = this.getOwnerComponent().getModel();
                 var oModel2 = this.getView().getModel();
                 var oData  = oModel2.getData();
-                var that   = this;
-
+                
                 // validações
                 var oName = this.getView().byId("customer.name");
                 oName.setValueState("None");
@@ -161,6 +142,7 @@ sap.ui.define([
                 if(oData.Customerid == 0){
                     oModel1.create("/customerSet",oData,{
                         success: function(oData, oResponse){
+                            oModel2.setData(oData);
                             if(oResponse.statusCode == 201){
                                 MessageToast.show("Cliente cadastrado com sucesso");
                             }else{
@@ -186,12 +168,12 @@ sap.ui.define([
             },
 
             _onRouteMatchedEdit: function(oEvent){
-                var that = this;
-                var oArgs = oEvent.getParameter("arguments");
+                var that        = this;
+                var sPath       = "/customerSet("+sCustomerId+")";
+                var oArgs       = oEvent.getParameter("arguments");
+                var oModel      = this.getOwnerComponent().getModel();
                 var sCustomerId = oArgs.Customerid;
-                var oModel = this.getOwnerComponent().getModel();
-                var sPath  = "/customerSet("+sCustomerId+")";
-
+                
                 oModel.read(sPath,{
                     success: function(oData, oResponse){
                         that.getView().setModel(new sap.ui.model.json.JSONModel(oData));

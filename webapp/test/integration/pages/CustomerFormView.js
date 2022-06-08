@@ -120,6 +120,23 @@ sap.ui.define([
 						errorMessage: "Did not find the CustomerFormView view"
 					});
 				},
+
+				iShouldSeeTheSuccessMessage: function () {
+					return this.waitFor({
+						//pollingInterval : 100,
+						matchers: function () {
+							return jQuery(".sapMMessageToast").text();
+						  },
+						success: function (sMessage) {
+							if(sMessage.indexOf("sucesso") >= 0){
+								Opa5.assert.ok(true, "The customer was created successfully");
+							}else{
+								Opa5.assert.ok(false, "Fail to create customer");
+							}
+						},
+						errorMessage: "Fail to create customer"
+					});
+				}
             }
         }
     });

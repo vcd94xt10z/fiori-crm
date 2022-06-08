@@ -39,7 +39,6 @@ sap.ui.define([
 		When.onTheCustomerFormPage.iSelectCountry();
 		When.onTheCustomerFormPage.iPressOnTheSaveButton();
 		
-
-		Then.onTheCustomerFormPage.iShouldSeeTheApp();
+		Then.onTheCustomerFormPage.iShouldSeeTheSuccessMessage();
 	});
 });
