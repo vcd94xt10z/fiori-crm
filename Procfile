@@ -1,1 +1,1 @@
-web: export PORT=80 &&tiny-server ./webapp
+web: vendor/bin/heroku-php-apache2 webapp/
