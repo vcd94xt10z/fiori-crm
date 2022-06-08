@@ -17,7 +17,7 @@ IDE: VSCode
 - Operações oData em um ambiente OnPremise :heavy_check_mark:
 - Operações oData localmente usando MockServer :heavy_check_mark:
 - Teste unitário :heavy_check_mark:
-- Teste de integração
+- Teste de integração :heavy_check_mark:
 
 # Conceitos aplicados
 - XMLViews :heavy_check_mark:
@@ -26,7 +26,7 @@ IDE: VSCode
 - DataBinding :heavy_check_mark:
 - MockServer :heavy_check_mark:
 - QUnit :heavy_check_mark:
-- Sinon
+- Opa5: :heavy_check_mark:
 
 # Observações
 Sempre que tiver duvidas na hora de saber como passar um valor do frontend para o backend, faça uma requisição de leitura, exemplo
