@@ -16,6 +16,15 @@ sap.ui.define([
 						errorMessage : "The new button could not be pressed"
 					});
 				},
+
+				iPressOnTheListButton : function () {
+					return this.waitFor({
+						viewName: "HomeView",
+						id: "buttonCustomerList",
+						actions : new Press(),
+						errorMessage : "The list button could not be pressed"
+					});
+				}
 			},
 
 			assertions: {

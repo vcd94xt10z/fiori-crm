@@ -3,7 +3,8 @@
 sap.ui.define([
 	"sap/ui/test/opaQunit",
 	"./pages/HomeView",
-	"./pages/CustomerFormView"
+	"./pages/CustomerFormView",
+	"./pages/CustomerListView"
 ], function (opaTest) {
 	"use strict";
 
@@ -40,5 +41,20 @@ sap.ui.define([
 		When.onTheCustomerFormPage.iPressOnTheSaveButton();
 		
 		Then.onTheCustomerFormPage.iShouldSeeTheSuccessMessage();
+		When.onTheCustomerFormPage.iPressOnTheBackButton();
+	});
+
+	opaTest("Should I filter customer name", function (Given, When, Then) {
+		When.onTheHomePage.iPressOnTheListButton();
+
+		Then.onTheCustomerListPage.iShouldSeeTheApp();
+
+		// Assertions
+		When.onTheCustomerListPage.iEnterName("Jack Sparow");
+		When.onTheCustomerListPage.iPressOnTheFilterButton();
+		
+		Then.onTheCustomerListPage.iShouldSeeTheOnlyOneRegister();
+
+		Then.onTheCustomerListPage.iShouldSeeTheApp();
 	});
 });

@@ -10,29 +10,29 @@
 
     <m:Page title="{i18n>customerListViewTitle}" showNavButton="true" navButtonPress="onPageBack" class="sapUiContentPadding">
 		<m:content>
-			<fb:FilterBar reset="onFilterReset" search="onFilterSearch">
+			<fb:FilterBar id="filterBar1" reset="onFilterReset" search="onFilterSearch">
 				<fb:filterItems>
 					<fb:FilterItem name="Customerid" label="{i18n>id}">
 						<fb:control>
-							<m:Input value="{filter>/Customerid}"/>
+							<m:Input id="Customer.Customerid" value="{filter>/Customerid}"/>
 						</fb:control>
 					</fb:FilterItem>
 
 					<fb:FilterItem name="Name" label="{i18n>name}">
 						<fb:control>
-							<m:Input value="{filter>/Name}"/>
+							<m:Input id="Customer.Name" value="{filter>/Name}"/>
 						</fb:control>
 					</fb:FilterItem>
 
 					<fb:FilterItem name="Email" label="{i18n>email}">
 						<fb:control>
-							<m:Input value="{filter>/Email}"/>
+							<m:Input id="Customer.Email" value="{filter>/Email}"/>
 						</fb:control>
 					</fb:FilterItem>
 
 					<fb:FilterItem name="SortField" label="{i18n>sort}">
 						<fb:control>
-							<m:Select selectedKey="{filter>/SortField}">
+							<m:Select id="SortField" selectedKey="{filter>/SortField}">
 								<m:items>
 									<core:Item text="" key=""/>
 									<core:Item text="{i18n>id}" key="Customerid"/>
@@ -49,7 +49,7 @@
 
 					<fb:FilterItem name="SortType" label="{i18n>sortType}">
 						<fb:control>
-							<m:Select selectedKey="{filter>/SortType}">
+							<m:Select id="SortType" selectedKey="{filter>/SortType}">
 								<m:items>
 									<core:Item text="" key=""/>
 									<core:Item text="{i18n>asc}" key="ASC"/>
@@ -61,7 +61,7 @@
 
 					<fb:FilterItem name="Limite" label="{i18n>limit}">
 						<fb:control>
-							<m:Input value="{filter>/Limit}" type="Number"/>
+							<m:Input id="Limit" value="{filter>/Limit}" type="Number"/>
 						</fb:control>
 					</fb:FilterItem>
 				</fb:filterItems>

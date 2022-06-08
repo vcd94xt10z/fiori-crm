@@ -108,6 +108,15 @@ sap.ui.define([
 						errorMessage : "The save button could not be pressed"
 					});
 				},
+
+				iPressOnTheBackButton : function () {
+					return this.waitFor({
+						viewName: "CustomerFormView",
+						id: "page2",
+						actions: new Press(),
+						errorMessage : "The back button could not be pressed"
+					});
+				}
             },
 
             assertions: {
