@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-apache2 webapp/
+web: npm go

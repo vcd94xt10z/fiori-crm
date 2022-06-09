@@ -9,12 +9,15 @@
     "sapui5"
   ],
   "main": "webapp/index.html",
-  "dependencies": {},
+  "dependencies": {
+    "http-server": "latest"
+  },
   "devDependencies": {
     "@sap/ux-ui5-tooling": "1",
     "@ui5/cli": "^2.14.1"
   },
   "scripts": {
+    "go": "http-server",
     "mock": "fiori run --open test/mockServer.html",
     "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#znsfioricrm-display\"",
     "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#znsfioricrm-display\"",
