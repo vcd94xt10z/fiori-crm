@@ -6,12 +6,12 @@ Framework: SAPUI5
 Versão: 1.71.40  
 IDE: VSCode  
 
-[Detalhes Tecnicos do App](app.md){target="_blank"}
+[Detalhes Técnicos do App](app.md)
 
 ### Demo online
-[MockServer](https://fiori-crm.herokuapp.com/test/mockServer.html){target="_blank"}  
-[Testes Unitários](https://fiori-crm.herokuapp.com/test/unit/unitTests.qunit.html){target="_blank"}  
-[Teste Integrados](https://fiori-crm.herokuapp.com/test/integration/opaTests.qunit.html){target="_blank"}  
+[MockServer](https://fiori-crm.herokuapp.com/test/mockServer.html)  
+[Testes Unitários](https://fiori-crm.herokuapp.com/test/unit/unitTests.qunit.html)  
+[Teste Integrados](https://fiori-crm.herokuapp.com/test/integration/opaTests.qunit.html)  
 
 Caso for subir o app em algum servidor web, não esqueça de deixar o diretório webapp como document root
 
