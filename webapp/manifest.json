@@ -121,6 +121,13 @@
           "target": [
             "TargetCustomerListView"
           ]
+        },
+        {
+          "name": "RouteCustomerChart",
+          "pattern": "customer/chart",
+          "target": [
+            "TargetCustomerChartView"
+          ]
         }
       ],
       "targets": {
@@ -144,6 +151,13 @@
           "clearControlAggregation": false,
           "viewId": "CustomerListView",
           "viewName": "CustomerListView"
+        },
+        "TargetCustomerChartView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "CustomerChartView",
+          "viewName": "CustomerChartView"
         }
       }
     },

@@ -11,5 +11,6 @@
                 <NumericContent value="0" id="customerCount"></NumericContent>
             </TileContent>
         </GenericTile>
+        <GenericTile id="buttonCustomerChart" header="{i18n>chartCustomers}" subheader="" press="onCustomerChartPage" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
     </Page>
 </mvc:View>

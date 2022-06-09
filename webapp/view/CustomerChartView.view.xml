@@ -1,0 +1,33 @@
+<mvc:View
+    controllerName="zns.fioricrm.controller.CustomerChartView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+	xmlns:layout="sap.ui.layout"
+    xmlns:c="sap.suite.ui.commons"
+>
+    <Page id="page3" title="{i18n>customerChart}" showNavButton="true" navButtonPress="onPageBack" class="sapUiContentPadding">
+        
+        <c:ChartContainer
+            id="chartContainer"
+            showFullScreen="true"
+            showPersonalization="false"
+            autoAdjustHeight="false"
+            personalizationPress="attachPersonalizationPress"
+            contentChange="attachContentChange"
+            title="">
+            <c:content>
+                <c:ChartContainerContent
+                    icon="sap-icon://line-chart"
+                    title="Line Chart">
+                    <c:content>
+                        <viz:VizFrame id="chartContainerVizFrame" height="700px" width="100%" vizProperties="{title: {text:'Clientes por País'}}"
+                                        uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
+                    </c:content>
+                </c:ChartContainerContent>
+            </c:content>
+        </c:ChartContainer>
+
+    </Page>
+</mvc:View>

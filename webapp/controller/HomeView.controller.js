@@ -33,6 +33,11 @@ sap.ui.define([
                 r.navTo("RouteCustomerNew");
             },
 
+            onCustomerChartPage: function(){
+                var r = UIComponent.getRouterFor(this);
+                r.navTo("RouteCustomerChart");
+            },
+
             onCustomerListPage: function(){
                 var r = UIComponent.getRouterFor(this);
                 r.navTo("RouteCustomerList");
