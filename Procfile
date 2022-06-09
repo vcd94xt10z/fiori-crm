@@ -1,1 +1,1 @@
-web: npm go
+web: npm run go
