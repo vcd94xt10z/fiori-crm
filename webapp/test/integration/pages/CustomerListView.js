@@ -32,6 +32,24 @@ sap.ui.define([
 						},
 						errorMessage : "The filter button could not be pressed"
 					});
+				},
+
+				iPressOnTheEditButton : function () {
+					return this.waitFor({
+						controlType: "sap.m.Button",
+						matchers: new Properties({icon : "sap-icon://edit"}),
+						actions: new Press(),
+						errorMessage : "The edit button could not be pressed"
+					});
+				},
+
+				iPressOnTheDeleteButton : function () {
+					return this.waitFor({
+						controlType: "sap.m.Button",
+						matchers: new Properties({icon : "sap-icon://delete"}),
+						actions: new Press(),
+						errorMessage : "The delete button could not be pressed"
+					});
 				}
             },
 
@@ -46,7 +64,7 @@ sap.ui.define([
 					});
 				},
 
-				iShouldSeeTheOnlyOneRegister: function () {
+				iShouldSeeTheOnlyOneRegister: function (sName) {
 					return this.waitFor({
 						viewName: "CustomerListView",
 						id: "table1",
@@ -61,7 +79,7 @@ sap.ui.define([
 									try {
 										var sText = oCell.getText();
 										
-										if(sText == "Jack Sparow"){
+										if(sText == sName){
 											return true;
 										}
 									}catch(e){
@@ -78,6 +96,23 @@ sap.ui.define([
 							Opa5.assert.ok(true, "The name filter works");
 						},
 						errorMessage: "The name filter didn't work"
+					});
+				},
+
+				iShouldSeeTheSuccessMessage: function () {
+					return this.waitFor({
+						//pollingInterval : 100,
+						matchers: function () {
+							return jQuery(".sapMMessageToast").text();
+						  },
+						success: function (sMessage) {
+							if(sMessage.indexOf("sucesso") >= 0){
+								Opa5.assert.ok(true, "The customer was created successfully");
+							}else{
+								Opa5.assert.ok(false, "Fail to create customer");
+							}
+						},
+						errorMessage: "Fail to create customer"
 					});
 				}
             }

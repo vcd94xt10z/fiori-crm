@@ -77,7 +77,7 @@ sap.ui.define([
 					});
 				},
 
-                iSelectCountry: function () {
+                iSelectCountry: function (sCountry) {
 					this.waitFor({
                         viewName: "CustomerFormView",
 						id: "customer.country",
@@ -88,7 +88,7 @@ sap.ui.define([
                                 controlType: "sap.ui.core.Item",
                                 matchers: [
                                     new Ancestor(oSelect),
-                                    new Properties({ key: "BR"})
+                                    new Properties({ key: sCountry})
                                 ],
                                 actions: new Press(),
                                 success: function() {
