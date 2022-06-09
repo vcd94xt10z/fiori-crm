@@ -1,1 +1,1 @@
-web: npm run go
+web: npm heroku
