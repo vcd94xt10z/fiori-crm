@@ -120,7 +120,7 @@ sap.ui.define([
             onSave: function(){
                 var oModel1 = this.getOwnerComponent().getModel();
                 var oModel2 = this.getView().getModel();
-                var oData  = oModel2.getData();
+                var oData   = oModel2.getData();
                 
                 // validações
                 var oName = this.getView().byId("customer.name");
@@ -169,10 +169,10 @@ sap.ui.define([
 
             _onRouteMatchedEdit: function(oEvent){
                 var that        = this;
-                var sPath       = "/customerSet("+sCustomerId+")";
                 var oArgs       = oEvent.getParameter("arguments");
-                var oModel      = this.getOwnerComponent().getModel();
                 var sCustomerId = oArgs.Customerid;
+                var sPath       = "/customerSet("+sCustomerId+")";
+                var oModel      = this.getOwnerComponent().getModel();
                 
                 oModel.read(sPath,{
                     success: function(oData, oResponse){

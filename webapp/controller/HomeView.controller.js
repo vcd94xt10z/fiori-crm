@@ -16,7 +16,7 @@ sap.ui.define([
             },
 
             onDisplay: function(oEvent){
-                var oTile = this.getView().byId("customerCount");
+                var oTile  = this.getView().byId("customerCount");
                 var oModel = this.getOwnerComponent().getModel();
 
                 oModel.read("/customerSet",{

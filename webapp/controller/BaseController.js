@@ -10,7 +10,7 @@ sap.ui.define([
         formatter: formatter,
 
         onPageBack: function(){
-            var oHistory = History.getInstance();
+            var oHistory      = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
 
 			if (sPreviousHash !== undefined) {

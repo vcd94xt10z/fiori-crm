@@ -8,6 +8,8 @@ IDE: VSCode
 
 [Detalhes Tecnicos do App](app.md)
 
+Caso for subir o app em algum servidor web, não esqueça de deixar o diretório webapp como document root
+
 # Status de cada funcionalidade
 - Criar cliente :heavy_check_mark:
 - Atualizar cliente :heavy_check_mark:

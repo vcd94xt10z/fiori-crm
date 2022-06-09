@@ -10,8 +10,9 @@ sap.ui.define([
         formatter: formatter,
         
         onInit: function(){
-            var oView = this.getView();
+            var oView   = this.getView();
             var oFModel = new sap.ui.model.json.JSONModel();
+
             oFModel.setData({
                 "Customerid": "",
                 "Name": "",
@@ -95,10 +96,10 @@ sap.ui.define([
         },
 
         onDelete: function(oEvent){
-            var oSource = oEvent.getSource();
+            var oModel      = this.getOwnerComponent().getModel();
+            var oSource     = oEvent.getSource();
             var sCustomerid = oSource.data("Customerid");
-            var oModel = this.getOwnerComponent().getModel();
-            var sPath = "/customerSet("+sCustomerid+")";
+            var sPath       = "/customerSet("+sCustomerid+")";
             
             oModel.remove(sPath,{
                 success: function(oData, oResponse){
