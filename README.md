@@ -9,9 +9,9 @@ IDE: VSCode
 [Detalhes Técnicos do App](app.md)
 
 ### Demo online
-[MockServer](https://fiori-crm.herokuapp.com/test/mockServer.html)  
-[Testes Unitários](https://fiori-crm.herokuapp.com/test/unit/unitTests.qunit.html)  
-[Teste Integrados](https://fiori-crm.herokuapp.com/test/integration/opaTests.qunit.html)  
+[MockServer](https://fiori-crm.pages.dev/test/mockServer.html)  
+[Testes Unitários](https://fiori-crm.pages.dev/test/unit/unitTests.qunit.html)  
+[Teste Integrados](https://fiori-crm.pages.dev/test/integration/opaTests.qunit.html)  
 
 Caso for subir o app em algum servidor web, não esqueça de deixar o diretório webapp como document root
 
